@@ -59,19 +59,19 @@ void FileReader::sortTokens() {
 
     // unique tokens is a vector of pair<string, int>
     // O(N^2) amortized
-    for (int i = 0; i < uniqueTokens.size() - 1; i++) {
+    for (int i = 0; i < sortedTokens.size() - 1; i++) {
         // while the second token is greater than the first swap the elements
         std::pair<std::string, int> tempPair;
         
         // best case -> O(1)
         // worst/avg (O(N))
-        int currElement = i;
-        int lastElement = i + 1;
-        while (!compare(uniqueTokens.at(currElement), uniqueTokens.at(lastElement)) && (currElement >= 0)) {
+        int currIndex = i;
+        int previousIndex = i + 1;
+        while (!compare(sortedTokens.at(currIndex), sortedTokens.at(previousIndex)) && (currIndex >= 0)) {
             // O(1)
-            std::swap(uniqueTokens.at(currElement), uniqueTokens.at(lastElement));
-            currElement--;
-            lastElement--;
+            std::swap(sortedTokens.at(currIndex), sortedTokens.at(previousIndex));
+            currIndex--;
+            previousIndex--;
         }
     }
 }
@@ -89,7 +89,19 @@ void FileReader::printTokenOccurrences() {
 // mapping tokens to a vector that acts as a set
 void FileReader::toSet() {
     for (auto& token: this->tokenCount) {
-        this->uniqueTokens.push_back(token);
+        this->sortedTokens.push_back(token);
+    }
+}
+
+void FileReader::printTenMostOccurring() {
+    std::string token;
+    int occurrence;
+
+    std::cout << "Ten most occurring tokens in the file!" << std::endl;
+    for (int i = 0; i < 10; i++) {
+        token = this->sortedTokens.at(i).first;
+        occurrence = this->sortedTokens.at(i).second;
+        std::cout << token << ": " << occurrence << std::endl;
     }
 }
 

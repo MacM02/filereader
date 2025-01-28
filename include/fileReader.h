@@ -12,7 +12,7 @@ private:
     std::ifstream fileStream;
     std::vector<std::string> tokens;
     std::unordered_map<std::string, int> tokenCount;
-    std::vector<std::pair<std::string, int>> uniqueTokens;
+    std::vector<std::pair<std::string, int>> sortedTokens;
 public:
     // constructor + destructor
     FileReader(std::string& fileName);
@@ -41,6 +41,8 @@ public:
     // prints the tokens and their number of reoccurrences in the file.
     void printTokenOccurrences();
 
+    // prints the ten most occurring tokens and their occurrences
+    void printTenMostOccurring();
     /**
      * Converts the list of tokens to a set.
      **/ 
