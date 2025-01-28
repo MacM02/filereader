@@ -9,27 +9,23 @@
 class FileReader {
 private:
     std::ifstream fileStream;
-
+    std::vector<std::string> tokens;
+    std::unordered_map<std::string, int> tokenCount;
 public:
-    FileReader(std::string fileName) : fileStream(fileName) {
-        if (!fileStream.is_open()) {
-            //FIXME:make this a logger statement potentially
-            std::cout << "Invalid file name: " << fileName;
-            throw std::runtime_error("Could not find the file " + fileName);
-        }
-        std::cout << "Successfully read in the file: " << fileName;
-    };
+    // constructor + destructor
+    FileReader(std::string& fileName);
+    ~FileReader();
 
     /**
      * Parses the tokens in an open file stream into a vector.
      */
-    void parseTokens(std::vector<std::string>& tokenList);
+    void parseTokens();
 
     /**
      * Counts the number of occurrences of repeated tokens in the token list and maps 
      * them to an unordered map.
      */
-    void countTokens(std::unordered_map<std::string, int>& tokenCount, std::vector<std::string>& tokenList);
+    void countTokens();
 
     /**
      * Gets the size of the file in the passed ifstream.
@@ -37,7 +33,11 @@ public:
      */
     int getFileSize();
 
+    // prints the tokens and their number of reoccurrences in the file.
+    void printTokenOccurrences();
 
+    // overloaded friend function that prints out tokens and their occurrence in the file.
+    friend std::ostream& operator<<(std::ostream& output, const FileReader& reader);
 };
 
 
