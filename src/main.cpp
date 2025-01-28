@@ -23,4 +23,7 @@ int main(int argc, char* argv[]) {
     reader.parseTokens();
     reader.countTokens();
     reader.printTokenOccurrences();
+    
+    reader.sortTokens();
+    reader.printTenMostOccurring();
 }

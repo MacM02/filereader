@@ -58,8 +58,9 @@ void FileReader::sortTokens() {
     toSet();
 
     // unique tokens is a vector of pair<string, int>
+    int numTokens = sortedTokens.size();
     // O(N^2) amortized
-    for (int i = 0; i < sortedTokens.size() - 1; i++) {
+    for (int i = 0; i < numTokens - 1; i++) {
         // while the second token is greater than the first swap the elements
         std::pair<std::string, int> tempPair;
         
