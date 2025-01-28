@@ -15,14 +15,6 @@ int main(int argc, char* argv[]) {
     }
     std::string fileName = argv[1];
     std::fstream stream(fileName);
-    
-    //FIXME: must print path as well
-    if(!stream.is_open()) {
-        std::cout << "Invalid file name: " << fileName << std::endl;
-        return 1;
-    }
-    //FIXME: must print path as well
-    std::cout << "Successfully read in file:" << fileName << std::endl;
     FileReader reader{fileName};
     std::vector<std::string> tokens;
     std::unordered_map<std::string, int> tokenCount;

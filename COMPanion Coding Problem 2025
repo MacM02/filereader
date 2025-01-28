@@ -5,13 +5,22 @@ Purpose
 * Add error/exception handling
 
 Specification
-* Read a file of text, whose name is supplied as a command line parameter. Handle the possibility that the file may not be present, and either way report the result of the attempt, giving the name and path.
+* Read a file of text, whose name is supplied as a command line parameter. Handle the possibility that the file may not be present, and either way report the result of the attempt, giving the name and path. 
+
 * Limit the number of bytes to 4096 and if greater, report the fact and stop.
+
 * Parse the file into tokens and for each distinct token, count the number of occurrences. The tokens and counts [of occurrences] should be stored in some suitable data structure [e.g. vector, set, map, tuple]. Print the results in an appropriate formatted style
+    1. Read from file into vector.
+    2. Map each unique word in the vector to a a number of occurrences.
+
 * Sort the set of tokens by occurrence from most to least. Print the results.
+
 * Find the ten tokens with the most characters, sorted from highest to lowest. Print the results.
+
 * Find the token with the most repeated characters. Print the result.
+
 * Write a short, clear summary of the points you understand from the specification. Also describe any flaws you might find in the specification. Include this in the final folder as a text file.
+
 Notes/Guidance
 There is no fixed answer or coding style here, but use the opportunity to demonstrate C++ and STL skills (above). We want to see clear, reliable code. Annotate and handle errors [e.g. What if the file exists but is empty? What if it doesn’t have ten tokens, or they are all the same?]. Include links to on-line documents that you use [e.g. cpppreference]. Otherwise, explain what you are doing using inline comments.
 Use Visual Studio 2017 or Visual Studio 2022 or Xcode 14 or Xcode 16. Use any constructs from any C++ version. If using CLion products, please use Resharper. If you use CMake for this project, please document your CMakeLists.txt and write a brief on how you configured the project. 
