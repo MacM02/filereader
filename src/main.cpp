@@ -27,14 +27,8 @@ int main(int argc, char* argv[]) {
     std::vector<std::string> tokens;
     std::unordered_map<std::string, int> tokenCount;
     
-    if (reader.getFileSize() > 4096) {
-        std::cout << "The file is too large." << std::endl;
-        return 1;
-    }
-
-    //FIXME: check file size
-    reader.parseTokens(tokens);
-
-    
-
+    // performing the work
+    reader.parseTokens();
+    reader.countTokens();
+    reader.printTokenOccurrences();
 }
