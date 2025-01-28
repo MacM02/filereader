@@ -27,6 +27,9 @@ public:
      */
     void countTokens();
 
+    // sorts the token list by occurrence in descending order
+    void sortTokens();
+
     /**
      * Gets the size of the file in the passed ifstream.
      * @return - the size of the file (in bytes).

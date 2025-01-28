@@ -7,6 +7,7 @@
 
 #include "../include/fileReader.h"
 #include <string>
+#include <sstream>
 
 class FileReader;
 
@@ -16,10 +17,9 @@ FileReader::FileReader(std::string& fileName) : fileStream(fileName, std::ios::b
         throw std::runtime_error("Could not find the file " + fileName);
     }
 
-    std::cout << "Successfully read in the file: " << fileName;
+    std::cout << "Successfully read in the file: " << fileName << std::endl;
 
     if (getFileSize() > 4096) {
-        std::cout << "The file is too large." << std::endl;
         throw std::runtime_error("The file " + fileName + " was too large.");
     }
 
@@ -27,15 +27,21 @@ FileReader::FileReader(std::string& fileName) : fileStream(fileName, std::ios::b
     fileStream.seekg(0, std::ios::beg);
 };
 
+FileReader::~FileReader() {};
+
 // parses the tokens into a list
 void FileReader::parseTokens() {
-    std::string token;
+    std::string tokenLine;
 
-    // add each token from the file to the token vector
-    while(this->fileStream.is_open()) {
-        std::getline(fileStream, token, ' ');
-        this->tokens.push_back(token);
+    // add each token from the file to the token vector by splitting lines into tokens
+    while(std::getline(fileStream, tokenLine)) {
+        std::istringstream lineStream(tokenLine); 
+        std::string token;
+        while (lineStream >> token) {
+            this->tokens.push_back(token);
+        }
     }
+    this->fileStream.close();
 }
 
 // counts tokens in a list and maps their occurrences to a map
@@ -60,4 +66,5 @@ std::ostream& operator<<(std::ostream& output, const FileReader& reader) {
     for (auto& tokenPair : reader.tokenCount) {
         output << tokenPair.first << ": " << tokenPair.second << std::endl;
     }
+    return output;
 }
