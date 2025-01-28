@@ -5,12 +5,14 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <set>
 
 class FileReader {
 private:
     std::ifstream fileStream;
     std::vector<std::string> tokens;
     std::unordered_map<std::string, int> tokenCount;
+    std::vector<std::pair<std::string, int>> uniqueTokens;
 public:
     // constructor + destructor
     FileReader(std::string& fileName);
@@ -32,12 +34,23 @@ public:
 
     /**
      * Gets the size of the file in the passed ifstream.
-     * @return - the size of the file (in bytes).
+     * @return the size of the file (in bytes).
      */
     int getFileSize();
 
     // prints the tokens and their number of reoccurrences in the file.
     void printTokenOccurrences();
+
+    /**
+     * Converts the list of tokens to a set.
+     **/ 
+    void toSet();
+
+    /** 
+     * Compares the value of two integers.
+     * @return true if first > second
+     */
+    bool compare(const std::pair<std::string, int> first, const std::pair<std::string, int> last);
 
     // overloaded friend function that prints out tokens and their occurrence in the file.
     friend std::ostream& operator<<(std::ostream& output, const FileReader& reader);
