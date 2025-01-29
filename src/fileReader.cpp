@@ -9,6 +9,7 @@
 #include <string>
 #include <sstream>
 #include <array>
+#include <algorithm>
 
 class FileReader;
 
@@ -55,26 +56,12 @@ void FileReader::countTokens() {
 // sorts the list of tokensin descending order based on  text occurrences.
 void FileReader::sortTokens() {
     // getting vector of pair<string, int> that only has unique tokens
+    //FIXME: maybe do this in another function.
     toSet();
-
-    // unique tokens is a vector of pair<string, int>
-    int numTokens = sortedTokens.size();
-    // O(N^2) amortized
-    for (int i = 0; i < numTokens - 1; i++) {
-        // while the second token is greater than the first swap the elements
-        std::pair<std::string, int> tempPair;
-        
-        // best case -> O(1)
-        // worst/avg (O(N))
-        int currIndex = i;
-        int previousIndex = i + 1;
-        while (!compare(sortedTokens.at(currIndex), sortedTokens.at(previousIndex)) && (currIndex >= 0)) {
-            // O(1)
-            std::swap(sortedTokens.at(currIndex), sortedTokens.at(previousIndex));
-            currIndex--;
-            previousIndex--;
-        }
-    }
+    std::sort(sortedTokens.begin(), sortedTokens.end(), 
+    [this] (const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+        return a.second > b.second;
+        });
 }
 
 // gets the size of the file in the stream
@@ -104,11 +91,6 @@ void FileReader::printTenMostOccurring() {
         occurrence = this->sortedTokens.at(i).second;
         std::cout << token << ": " << occurrence << std::endl;
     }
-}
-
-// compares a pair of values
-bool FileReader::compare(const std::pair<std::string, int> first, const std::pair<std::string, int> last) {
-    return first.second >= last.second;
 }
 
 // overloaded friend function that prints the entire token map to the terminal

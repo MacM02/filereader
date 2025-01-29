@@ -48,12 +48,6 @@ public:
      **/ 
     void toSet();
 
-    /** 
-     * Compares the value of two integers.
-     * @return true if first > second
-     */
-    bool compare(const std::pair<std::string, int> first, const std::pair<std::string, int> last);
-
     // overloaded friend function that prints out tokens and their occurrence in the file.
     friend std::ostream& operator<<(std::ostream& output, const FileReader& reader);
 };
