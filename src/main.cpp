@@ -15,15 +15,13 @@ int main(int argc, char* argv[]) {
     }
     std::string fileName = argv[1];
     std::fstream stream(fileName);
+
     FileReader reader{fileName};
     std::vector<std::string> tokens;
     std::unordered_map<std::string, int> tokenCount;
     
     // performing the work
-    reader.parseTokens();
     reader.countTokens();
-    reader.printTokenOccurrences();
-    
     reader.sortTokens();
-    reader.printTenMostOccurring();
+    
 }
