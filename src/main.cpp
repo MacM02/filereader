@@ -2,7 +2,7 @@
  * Reads in a file and parses the data.
  * 
  * Mack Muir-Jeffryes
- * January 27th, 2025
+ * January 29th, 2025
  */
 #include "../include/fileReader.h"
 #include <string>
@@ -14,14 +14,17 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     std::string fileName = argv[1];
-    std::fstream stream(fileName);
-
     FileReader reader{fileName};
-    std::vector<std::string> tokens;
-    std::unordered_map<std::string, int> tokenCount;
     
-    // performing the work
-    reader.countTokens();
-    reader.sortTokens();
-    
+    // initializes map (token -> occurrence in file) + prints all tokens and occurrences (no order)
+    reader.countTokensOccurrences();
+
+    // prints the same list but in order by occurrence
+    reader.sortByOccurrence();
+    // prints the same length 
+    // reader.sortByLength();
+    std::string repeatedCharToken = reader.getTokenWithMostRepeatedChars();
+    std::cout << "The token with the most repeated characters is " << "'" << repeatedCharToken << "'!" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Thanks for using the fileReader!" << std::endl;
 }
