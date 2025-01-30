@@ -1,5 +1,7 @@
 /**
- * Reads in a file and parses the data.
+ * Creates a fileReader object that reads in a filename and parses the tokens 
+ * within to output appropriate information such as token occurrences, tokens
+ * with the greatest length, and the token with the most repeating characters.
  * 
  * Mack Muir-Jeffryes
  * January 29th, 2025
@@ -31,6 +33,6 @@ int main(int argc, char* argv[]) {
     std::string repeatedCharToken = reader.getTokenWithMostRepeatedChars();
     std::cout << "The token with the most repeated characters is " << "'" << repeatedCharToken << "'!" << std::endl;
     std::cout << std::endl;
-    
+
     std::cout << "Thanks for using the fileReader!" << std::endl;
 }

@@ -7,6 +7,12 @@
 #include <fstream>
 #include <set>
 
+/**
+ * Header file that defines the fileReader class.
+ * 
+ * Mack Muir-Jeffryes
+ * January 29th, 2025
+ */
 class FileReader {
 private:
     // holds a list of all tokens in the input file.
@@ -32,13 +38,6 @@ private:
      * @return - number of most repeated characters.
      */
     int mostRepeatedChars(const std::string& token);
-
-    /** 
-     * Prints the ten most occurring tokens.
-     * @param - a vector of sorted tokens.
-     * @param - the number of tokens to print.
-     */
-    void printTenMostOccurring(const std::vector<std::pair<std::string, int>>& sortedTokens, int numTokens);
 
     /**
      * Prints out the entire list of tokens and their occurrences unsorted.
@@ -87,9 +86,12 @@ public:
      */
     std::string getTokenWithMostRepeatedChars();
 
-    // overloaded friend function that prints out tokens and their occurrence in the file.
+    /**
+     * overloaded friend function that prints out tokens and their occurrence in the file.
+     * @param - An ostream for data output.
+     * @param - A filereader object to derive instance variables from.
+     */
     friend std::ostream& operator<<(std::ostream& output, const FileReader& reader);
 };
-
 
 #endif

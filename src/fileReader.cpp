@@ -1,5 +1,7 @@
 /**
- * Reads in a file and parses the data.
+ * Reads in a file and parses the data by counting token occurrences, finding 
+ * tokens with the greatest length, and the token with the most repeating
+ * characters.
  * 
  * Mack Muir-Jeffryes
  * January 29th, 2025
@@ -77,7 +79,7 @@ void FileReader::sortByLength() {
         return a.first.length() > b.first.length();
         });
 
-    std::cout << "Printing out the top 10 tokens with the greatest length!" << std::endl;
+    std::cout << "Printing out the 10 tokens with the greatest length!" << std::endl;
     std::cout << "Token: " << "Length" << std::endl;
     printTokenLengths(tokenSet, 10);
 }
@@ -139,7 +141,6 @@ void FileReader::toSet(std::vector<std::pair<std::string, int>>& emptyList) {
 // counts and returns the number of the most repeated characer in a word.
 int FileReader::mostRepeatedChars(const std::string& token) {
     std::unordered_map<char, int> charToOccurrence;
-    
     int charRepeats = 0;
 
     for (auto& letter : token) {
@@ -160,7 +161,7 @@ void FileReader::printTokenLengths(const std::vector<std::pair<std::string, int>
     }
 }
 
-// prints all the tokens and their occurrences.
+// prints all the tokens and their occurrences by calling overloaded friend function.
 void FileReader::printTokenOccurrences() {
     std::cout << *this;
 }
