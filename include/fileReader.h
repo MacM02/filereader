@@ -33,7 +33,7 @@ private:
     void toSet(std::vector<std::pair<std::string, int>>& emptyList);
 
     /**
-     * Counts the number of most repeated characters in the token.abort
+     * Counts the number of most repeated characters in the token.
      * @param - a single token derived from the file.
      * @return - number of most repeated characters.
      */
@@ -52,7 +52,7 @@ private:
     void printTokenOccurrences(const std::vector<std::pair<std::string, int>>& tokenList, int numTokens);
 
     /**
-     * Prints the tokens and their lcharacter lengths.
+     * Prints the tokens and their character lengths.
      * @param - a token list to print.
      * @param - the number of tokens to print.
      */
