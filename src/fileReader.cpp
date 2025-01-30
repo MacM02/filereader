@@ -41,7 +41,7 @@ void FileReader::countTokensOccurrences() {
     for (auto& token : this->tokens) {
         this->tokenToOccurrence[token]++;
     }
-    std::cout << "Printing out all tokens and their occurrences!" << std::endl;
+    std::cout << "Printing out all tokens and their occurrences unsorted!" << std::endl;
     std::cout << "Token: " << "Occurrence" << std::endl;
     printTokenOccurrences();
 }
@@ -58,6 +58,7 @@ void FileReader::sortByOccurrence() {
         return a.second > b.second;
         });
     
+    std::cout << "Printing out all tokens and their occurrences sorted!" << std::endl;
     int numTokens = tokenSet.size();
     std::cout << "Token: " << "Occurrence" << std::endl;
     printTokenOccurrences(tokenSet, numTokens);
@@ -75,7 +76,8 @@ void FileReader::sortByLength() {
     [] (const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
         return a.first.length() > b.first.length();
         });
-    
+
+    std::cout << "Printing out the top 10 tokens with the greatest length!" << std::endl;
     std::cout << "Token: " << "Length" << std::endl;
     printTokenLengths(tokenSet, 10);
 }

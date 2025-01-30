@@ -18,13 +18,19 @@ int main(int argc, char* argv[]) {
     
     // initializes map (token -> occurrence in file) + prints all tokens and occurrences (no order)
     reader.countTokensOccurrences();
+    std::cout << std::endl;
 
     // prints the same list but in order by occurrence
     reader.sortByOccurrence();
+    std::cout << std::endl;
+
     // prints the same length 
-    // reader.sortByLength();
+    reader.sortByLength();
+    std::cout << std::endl;
+
     std::string repeatedCharToken = reader.getTokenWithMostRepeatedChars();
     std::cout << "The token with the most repeated characters is " << "'" << repeatedCharToken << "'!" << std::endl;
     std::cout << std::endl;
+    
     std::cout << "Thanks for using the fileReader!" << std::endl;
 }
