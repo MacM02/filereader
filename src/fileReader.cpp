@@ -16,7 +16,7 @@
 class FileReader;
 
 FileReader::FileReader(std::string& fileName) {
-    std::ifstream fileStream(fileName, std::ios::binary | std::ios::ate);
+    std::ifstream fileStream(fileName, std::ios::ate);
 
     if (!fileStream.is_open()) {
         std::cout << "Invalid file name: " << fileName << std::endl;
@@ -36,6 +36,7 @@ FileReader::FileReader(std::string& fileName) {
     parseTokens(fileStream);
 };
 
+// default destructor
 FileReader::~FileReader() {};
 
 // counts tokens in a list and maps their occurrences to a map and prints the results.
@@ -50,38 +51,38 @@ void FileReader::countTokensOccurrences() {
 
 // sorts the list of tokens in descending order based on token occurrences and prints out the top 10.
 void FileReader::sortByOccurrence() {
-    std::vector<std::pair<std::string, int>> tokenSet;
+    std::vector<std::pair<std::string, int>> tokenVector;
 
     // initializing the token set with the mapped K,V pairs
-    toSet(tokenSet);
+    toSet(tokenVector);
 
-    std::sort(tokenSet.begin(), tokenSet.end(), 
+    std::sort(tokenVector.begin(), tokenVector.end(), 
     [] (const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
         return a.second > b.second;
         });
     
     std::cout << "Printing out all tokens and their occurrences sorted!" << std::endl;
-    int numTokens = tokenSet.size();
+    int numTokens = tokenVector.size();
     std::cout << "Token: " << "Occurrence" << std::endl;
-    printTokenOccurrences(tokenSet, numTokens);
+    printTokenOccurrences(tokenVector, numTokens);
 }
 
 // fills an empty vector with the a sorted list of tokens based on character length.
 void FileReader::sortByLength() {
-    std::vector<std::pair<std::string, int>> tokenSet;
+    std::vector<std::pair<std::string, int>> tokenVector;
 
     // initializing the token set with the mapped K,V pairs
-    toSet(tokenSet);
+    toSet(tokenVector);
 
     // lambda comparator passed to sort by descending order
-    std::sort(tokenSet.begin(), tokenSet.end(), 
+    std::sort(tokenVector.begin(), tokenVector.end(), 
     [] (const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
         return a.first.length() > b.first.length();
         });
 
     std::cout << "Printing out the 10 tokens with the greatest length!" << std::endl;
     std::cout << "Token: " << "Length" << std::endl;
-    printTokenLengths(tokenSet, 10);
+    printTokenLengths(tokenVector, 10);
 }
 
 // returns the token with the most repeated characrters in the file.
