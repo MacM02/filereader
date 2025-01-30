@@ -39,4 +39,36 @@ rer being out; his calling her again; the busy signal; the coin falling out of
 ■ssshiL his opening the door of the phone box in order to retrieve it; at last
 aemng her on the line; her asking him to call again next week, finally setting 40
 Waiting for her at the cafe, he surprised himself hoping that she
-didn't come. 
+didn't come. The appointment was at three. It was now ten past. Well,
+see was often late. He looked at the clock, and at the picture window for
+rer car. A car like hers, and yet not hers— no luggage rack on it. The smooth 45
+eardrop gave him a peculiar pleasure. Why? It was 3:15 now. Perhaps she
+wouldn't come. No, if she was going to come at all, this was the most
+ckeiy time for her to arrive. Twenty past. Ah, now there was some hope.
+Hope? How strange he should be hoping for her absence. W hy had he
+made the appointment if he was hoping she would miss it? He didn’t so
+sm.ow why, but simpler, simpler if she didn’t come. Because all he wanted
+now was to smoke that cigarette, drink that cup of coffee for the sake of
+mem. and not to give himself something to do. And he wished he could
+p: for a drive, free and easy, as he had said he would. But he waited,
+in c at 3:30 she arrived. “I had almost given up hope,” he said. 55
+They drove to the house on the lake. As he held her in his arms he
+couldn't think of her; for the life of him he couldn’t.
+'W hat are you thinking about?” she said afterwards, sensing his
+oetachment.
+For a moment he didn’t answer, then he said, “You really want to so what I was thinking of?”
+"Yes." she said, a little anxiously.
+He suppressed a laugh, as though what he was going to tell her was
+absurd or silly. “I was thinking of someone doing the can-can.”
+"Oh." she said, reassured. “For a moment I was afraid you were
+thinking of your wife.
+
+
+
+
+
+RESULTS:
+
+Successfully read in the file: largeFile.txt
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  The file largeFile.txt was too large. Must be smaller than 4096 bytes.

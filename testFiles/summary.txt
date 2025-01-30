@@ -1,0 +1,59 @@
+COMPanion Coding Problem 2025 Summary
+Mack Muir-Jeffryes
+January 30th, 2025
+
+Understanding and Layout:
+
+Initially reading the specifications of this coding assignment, it was clear
+that we needed to create a class that provided functionalities for all parsing steps.
+I created both a cpp and header file named 'fileReader', which, after implementation, 
+would be called in our main.cpp file to perform the tasks of parsing our file data.
+
+For the most part, I understood the steps that I had to take to parse the data.
+First and foremost, the data had to be read in and stored in a suitable container
+that would map tokens to occurrences. As the previous sentence insinuates, an
+unordered_map<string, int> was chosen for this container as the cost of searching for,
+removing, and inserting elements is O(1). I then needed one more thing, a method with
+which I would sort these pairs. As maps are unordered, I decided on using a 
+vector<pair<string, int>> to store the set of unique tokens and sort them. Giving me
+two data structures that were used as private instance variables in the fileReader class.
+
+Questions: 
+
+Now that I understood the layout of the project, my next step was to understand
+the nuance of the methods that I wanted to write. However, a few things weren't clear
+to me from the instructions. Those questions included: 
+
+- How do we define a token? Is punctuation included or excluded? Are'hello' and 'hello!' 
+  duplicate occurrences?
+- Is a "repeated character" a single character that is repeated multiple times, two 
+  characters contiguous in memory that are equal, or is it the summation of all equal
+  characters in the entire string? 
+- What will be the context of the program's applications?
+- How are tokens tiebroken? Both in the case of a tiebreaker between character lengths
+  and occurrences.
+
+Addressing the ambiguity: 
+
+Due to the prompt's intentional ambiguity, I chose to answer these questions based on my own
+definitions. First, I defined a token as being "a series of characters delimited by either a space
+or a newline." This allowed me to parse the data within the scope of this definition, with 
+words like 'hello' and 'hello!' being distinct tokens. Next, it was most intuitive to me for
+a "repeated character" to be a single character that was repeated throughout the string. Next, although
+the fileReader was being created to perform to certain specifications, I wanted to use a varying
+degree of encapsulation that might allow those who wanted to use the fileReader class for purposes
+outside of this assignment to do so. This meant, that rather than have a method 'parse()' in my 
+fileReader class that performed all the work, I chose to instead call public methods in the main.cpp
+file. Although slightly less of a black box, the practicality of the class seemed to outweigh the 
+downfalls of a few more lines of code in our main() method. Finally, this left us with a choice to
+determine how tokens with certain occurrences or character lengths, if equal, are chosen.
+Choosing character occurrences, I gave the sort() function the criteria "return a.second > b.second,"
+which told the passed-in comparator that tokens with the same occurrences will hold their relative
+order in the list, with no swap happening. When choosing between character length, I once again told
+the comparator to keep the relative ordering of equal characters in the list. Now that these 
+questions had been taken care of, I was able to implement the class smoothly and without doubt.
+
+Note: 
+
+All file results are below the initially used text that was used when running the executable with
+the tag "RESULTS:".

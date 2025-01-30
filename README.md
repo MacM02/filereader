@@ -2,7 +2,7 @@ Author: Mack Muir-Jeffryes
 Start Date: January 27th, 2025
 GitHub ID: MacM02
 GitHub Repo: https://github.com/MacM02/filereader
-Commit Date: January 27th, 2025
+Commit Date: January 30th, 2025
 Copyright: CS 3500, [Mack Muir-Jeffryes] - This work may not be copied for use in Academic CourseWork.
 Topic: COMPanion Coding Project
 
@@ -19,13 +19,16 @@ Topic: COMPanion Coding Project
             *Finds the ten tokens with the most characters, sorted from highest to lowest.
             *Finds the token with the most repeated characters.
 
-# Estimated/Worked         Note
+    January 30th. 2025:
 
-	6/2                     Spent a good chunk of time deciding how to organize the files.
+        Completed the fileReader class. Includes all functionality above.
 	
 # Times Worked on
 	
 	Jan 27th, 2025
+	Jan 28th, 2025
+	Jan 29th, 2025
+	Jan 30th, 2025
 
 # Notes
 

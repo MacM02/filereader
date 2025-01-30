@@ -1,6 +1,0 @@
-Hello this is a very small text file.
-Here are a few words that are the same such as dog cat dog cat dog cat.
-
-Now words that have reccurring characters: hello and book and freedom and feeble
-
-That's it for testing! Look after the children, the baby.

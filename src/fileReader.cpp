@@ -80,9 +80,18 @@ void FileReader::sortByLength() {
         return a.first.length() > b.first.length();
         });
 
-    std::cout << "Printing out the 10 tokens with the greatest length!" << std::endl;
-    std::cout << "Token: " << "Length" << std::endl;
-    printTokenLengths(tokenVector, 10);
+    int tokenSize = tokenVector.size();
+    if (tokenSize >= 10) {
+        std::cout << "Printing out the 10 tokens with the greatest length!" << std::endl;
+        std::cout << "Token: " << "Length" << std::endl;
+        printTokenLengths(tokenVector, 10);
+    }
+    else {
+        std::cout << "There are not 10 tokens in the list, so here are the top " << tokenSize << "!" << std::endl;
+        std::cout << "Token: " << "Length" << std::endl;
+        printTokenLengths(tokenVector, tokenSize);
+    }
+    
 }
 
 // returns the token with the most repeated characrters in the file.

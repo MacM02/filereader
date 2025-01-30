@@ -1,0 +1,12 @@
+
+
+
+
+
+
+RESULTS:
+
+Successfully read in the file: empty.txt
+The file was empty! No tokens could be parsed.
+terminate called after throwing an instance of 'std::invalid_argument'
+  what():  The file was empty! Nothing to read here.
