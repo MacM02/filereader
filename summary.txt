@@ -57,3 +57,5 @@ Note:
 
 All file results are below the initially used text that was used when running the executable with
 the tag "RESULTS:".
+
+Compile cmd: g++ -Wall -g -o main src/main.cpp src/fileReader.cpp include/fileReader.h
